@@ -1,0 +1,30 @@
+/* ----- HEADER ----- */
+header {
+    grid-area: header;
+    background-color: #f0f0f0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* ----- LOGO ----- */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo h1 {
+    font-size: 3rem;
+    color: #333;
+}
+
+.logo img {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+}

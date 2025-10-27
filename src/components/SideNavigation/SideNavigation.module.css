@@ -1,0 +1,21 @@
+nav {
+    grid-area: navigation;
+    background-color: #ffe8c2;
+    padding: 20px;
+}
+
+nav div {
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav div:hover {
+    color: #d47a00;
+}
+
+.item a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 1.2rem;
+}

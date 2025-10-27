@@ -1,0 +1,7 @@
+footer {
+    grid-area: footer;
+    background-color: #ffc1c1;
+    text-align: center;
+    line-height: 60px;
+    font-weight: 500;
+}
