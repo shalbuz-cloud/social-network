@@ -11,11 +11,15 @@ nav div {
 }
 
 nav div:hover {
-    color: #d47a00;
+    color: #d4a264;
 }
 
 .item a {
     text-decoration: none;
     color: inherit;
     font-size: 1.2rem;
+}
+
+.active {
+    color: #d47a00 !important;
 }

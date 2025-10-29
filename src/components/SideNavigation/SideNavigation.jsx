@@ -1,15 +1,28 @@
 import React from 'react';
-import cl from './SideNavigation.module.css';
+import s from './SideNavigation.module.css';
+import { NavItem } from "@/components/SideNavigation/NavItem.js";
 
 const SideNavigation = () => {
     return (
         <nav>
-            <div className={ cl.item }><a href="/profile">Profile</a></div>
-            <div className={ cl.item }><a href="/messages">Messages</a></div>
-            <div className={ cl.item }><a href="/feed">Feed</a></div>
-            <div className={ cl.item }><a href="/news">News</a></div>
-            <div className={ cl.item }><a href="/music">Music</a></div>
-            <div className={ cl.item }><a href="/settings">Settings</a></div>
+            <div className={ s.item }>
+                <NavItem to={"/profile"}>Profile</NavItem>
+            </div>
+            <div className={ s.item }>
+                <NavItem to={"/messages"}>Messages</NavItem>
+            </div>
+            <div className={ s.item }>
+                <NavItem to={"/feed"}>Feed</NavItem>
+            </div>
+            <div className={ s.item }>
+                <NavItem to={"/news"}>News</NavItem>
+            </div>
+            <div className={ s.item }>
+                <NavItem to={"/music"}>Music</NavItem>
+            </div>
+            <div className={ s.item }>
+                <NavItem to={"/settings"}>Settings</NavItem>
+            </div>
         </nav>
     )
 }
