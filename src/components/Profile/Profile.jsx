@@ -1,17 +1,17 @@
 import React from "react";
-import cl from "./Profile.module.css";
+import s from "./Profile.module.css";
 import PostList from "./Post/PostList";
 
 const Profile = () => {
     return (
         <>
-            <div className={ cl.header }></div>
-            <div className={ cl.profile }>
-                <div className={ cl.avatar }>
+            <div className={ s.header }></div>
+            <div className={ s.profile }>
+                <div className={ s.avatar }>
                     <img src="https://placehold.co/200x200/orange/white.png" alt="avatar"/>
                 </div>
-                <div className={ cl.info }>
-                    <span className={ cl.username }>Dmitry K.</span>
+                <div className={ s.info }>
+                    <span className={ s.username }>Dmitry K.</span>
                     <ul>
                         <li>Date of Birth: 2 January</li>
                         <li>City: Minsk</li>

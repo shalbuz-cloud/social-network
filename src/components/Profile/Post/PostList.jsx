@@ -1,12 +1,12 @@
 import React from "react";
-import cl from "./PostList.module.css"
+import s from "./PostList.module.css"
 import PostItem from "./PostItem";
 
 const PostList = () => {
     return (
-        <div className={ cl.item }>
+        <div className={ s.item }>
             <h2>My posts</h2>
-            <div className={ cl.item_new }>
+            <div className={ s.item_new }>
                 <input type="text"/>
                 <button>Send</button>
             </div>

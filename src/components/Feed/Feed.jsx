@@ -1,16 +1,16 @@
 import React from "react";
-import cl from "./Feed.module.css";
+import s from "./Feed.module.css";
 
 const Feed = () => {
     return (
         <>
-            <div className={ cl.item }>
-                <div className={ cl.info }>
+            <div className={ s.item }>
+                <div className={ s.info }>
                     <img className="avatar" src='https://placehold.co/64x64.png' alt="avatar"/>
                     <span className="author">Author name</span>
                     <span className="item_date">23.09.2023</span>
                 </div>
-                <div className={ cl.data }>
+                <div className={ s.data }>
                     <img
                         src="https://static.vecteezy.com/vite/assets/photo-masthead-375-BoK_p8LG.webp"
                         alt="item_1"
@@ -26,13 +26,13 @@ const Feed = () => {
                     </p>
                 </div>
             </div>
-            <div className={ cl.item }>
-                <div className={ cl.info }>
+            <div className={ s.item }>
+                <div className={ s.info }>
                     <img className="avatar" src='https://placehold.co/64x64.png' alt="avatar"/>
                     <span className="author">Author name</span>
                     <span className="item_date">23.09.2023</span>
                 </div>
-                <div className={ cl.data }>
+                <div className={ s.data }>
                     <img
                         src="https://media.istockphoto.com/id/825383494/photo/business-man-pushing-large-stone-up-to-hill-business-heavy-tasks-and-problems-concept.jpg?s=612x612&w=0&k=20&c=wtqvbQ6OIHitRVDPTtoT_1HKUAOgyqa7YzzTMXqGRaQ="
                         alt="item_2"
@@ -83,13 +83,13 @@ const Feed = () => {
                     </p>
                 </div>
             </div>
-            <div className={ cl.item }>
-                <div className={ cl.info }>
+            <div className={ s.item }>
+                <div className={ s.info }>
                     <img className="avatar" src='https://placehold.co/64x64.png' alt="avatar"/>
                     <span className="author">Author name</span>
                     <span className="item_date">23.09.2023</span>
                 </div>
-                <div className={ cl.data }>
+                <div className={ s.data }>
                     <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl3BpZzWRfzu7jfRPzK5GvP4d0WmDreCa1-Q&s"
                         alt="item_3"
@@ -119,13 +119,13 @@ const Feed = () => {
                     </p>
                 </div>
             </div>
-            <div className={ cl.item }>
-                <div className={ cl.info }>
+            <div className={ s.item }>
+                <div className={ s.info }>
                     <img className="avatar" src='https://placehold.co/64x64.png' alt="avatar"/>
                     <span className="author">Author name</span>
                     <span className="item_date">23.09.2023</span>
                 </div>
-                <div className={ cl.data }>
+                <div className={ s.data }>
                     <img
                         src="https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                         alt="item_4"
@@ -167,13 +167,13 @@ const Feed = () => {
                     </p>
                 </div>
             </div>
-            <div className={ cl.item }>
-                <div className={ cl.info }>
+            <div className={ s.item }>
+                <div className={ s.info }>
                     <img className="avatar" src='https://placehold.co/64x64.png' alt="avatar"/>
                     <span className="author">Author name</span>
                     <span className="item_date">23.09.2023</span>
                 </div>
-                <div className={ cl.data }>
+                <div className={ s.data }>
                     <img
                         src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSziyrVAlq9FhdpNEhu9VhDIS0ON9nWX6_2rA&s"
                         alt="item_5"
