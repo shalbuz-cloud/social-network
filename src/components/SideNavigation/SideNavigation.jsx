@@ -1,27 +1,27 @@
 import React from 'react';
 import s from './SideNavigation.module.css';
-import { NavItem } from "@/components/SideNavigation/NavItem.js";
+import { NavItem } from "@/components/Utils/NavItem.tsx";
 
 const SideNavigation = () => {
     return (
         <nav>
             <div className={ s.item }>
-                <NavItem to={"/profile"}>Profile</NavItem>
+                <NavItem to={ "/profile" } activeClass={ s.active }>Profile</NavItem>
             </div>
             <div className={ s.item }>
-                <NavItem to={"/messages"}>Messages</NavItem>
+                <NavItem to={ "/messages" } activeClass={ s.active }>Messages</NavItem>
             </div>
             <div className={ s.item }>
-                <NavItem to={"/feed"}>Feed</NavItem>
+                <NavItem to={ "/feed" } activeClass={ s.active }>Feed</NavItem>
             </div>
             <div className={ s.item }>
-                <NavItem to={"/news"}>News</NavItem>
+                <NavItem to={ "/news" } activeClass={ s.active }>News</NavItem>
             </div>
             <div className={ s.item }>
-                <NavItem to={"/music"}>Music</NavItem>
+                <NavItem to={ "/music" } activeClass={ s.active }>Music</NavItem>
             </div>
             <div className={ s.item }>
-                <NavItem to={"/settings"}>Settings</NavItem>
+                <NavItem to={ "/settings" } activeClass={ s.active }>Settings</NavItem>
             </div>
         </nav>
     )
