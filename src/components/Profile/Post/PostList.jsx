@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import s from "./PostList.module.css"
 import PostItem from "./PostItem";
 
