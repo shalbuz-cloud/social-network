@@ -1,0 +1,37 @@
+/* ----- GENERAL ----- */
+.item {
+    padding: 10px 0;
+    font-size: 1rem;
+}
+
+.item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+/* ----- MESSENGER ----- */
+.messenger {
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+/* ----- DIALOGS ----- */
+.messenger .items {
+}
+
+.messenger .active {
+    color: #d47a00;
+    text-decoration: underline 2px solid #ccc;
+    font-weight: bold;
+}
+
+.messenger .items .item {
+}
+
+/* ----- CHAT ----- */
+.chat {
+}
+
+.chat .item {
+}
