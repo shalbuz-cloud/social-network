@@ -1,26 +1,16 @@
-import React from "react";
 import s from "./Profile.module.css";
 import PostList from "./Post/PostList";
+import ProfileInfo from "./Info/ProfileInfo.tsx";
 
-const Profile = () => {
+const Profile = (props) => {
     return (
         <>
             <div className={ s.header }></div>
             <div className={ s.profile }>
-                <div className={ s.avatar }>
-                    <img src="https://placehold.co/200x200/orange/white.png" alt="avatar"/>
-                </div>
-                <div className={ s.info }>
-                    <span className={ s.username }>Dmitry K.</span>
-                    <ul>
-                        <li>Date of Birth: 2 January</li>
-                        <li>City: Minsk</li>
-                        <li>Education: BSU'11</li>
-                        <li>Email: dmitry.k@example.com</li>
-                    </ul>
-                </div>
+                <ProfileInfo />
             </div>
-            <PostList />
+            <PostList items={ props.profile.posts } addPost={ props.addPost } newPostText={ props.profile.newPostText }
+                      updateNewPostText={ props.updateNewPostText } />
         </>
     )
 }
