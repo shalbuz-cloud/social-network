@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 // Импортируем state и функции. Нам нужно будет изменить state.ts,
 // чтобы он экспортировал нашу функцию рендеринга.
-import state, { addPost, updateNewPostText, subscribe } from './redux/state'
+import store from './redux/state'
 import { BrowserRouter } from "react-router-dom"
 
 
@@ -33,12 +33,8 @@ const rerenderEntireTree = () => {
     root.render(
         <StrictMode>
             <BrowserRouter>
-                {/* Передаем текущее актуальное состояние и функции в App */}
-                <App
-                    state={state}
-                    addPost={addPost}
-                    updateNewPostText={updateNewPostText}
-                />
+                {/* Передаем текущее актуальное состояние и функции в App */ }
+                <App state={ store.getState() } dispatch={ store.dispatch.bind(store) } />
             </BrowserRouter>
         </StrictMode>,
     );
@@ -47,7 +43,7 @@ const rerenderEntireTree = () => {
 // Подписываемся на изменения в файле state.ts.
 // Теперь при любом изменении состояния (например, при добавлении поста),
 // будет вызвана функция rerenderEntireTree, которая запустит обновление.
-subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree)
 
 // Первый вызов для первоначального рендера
-rerenderEntireTree();
+rerenderEntireTree()

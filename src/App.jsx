@@ -18,19 +18,14 @@ function App(props) {
                         <Route
                             path="/profile"
                             element={
-                                <Profile profile={ props.state.profile } addPost={ props.addPost }
-                                         updateNewPostText={ props.updateNewPostText }
-                                /> }
+                                <Profile profile={ props.state.profile } dispatch={ props.dispatch } /> }
                         >
 
                         </Route>
                         <Route
                             path="/messages/*"
                             element={
-                                <Messenger
-                                    dialogs={ props.state.messenger.dialogs }
-                                    messages={ props.state.messenger.messages }
-                                />
+                                <Messenger state={ props.state.messenger } dispatch={ props.dispatch } />
                             }
                         ></Route>
                         <Route path="/feed" element={ <Feed /> }></Route>
