@@ -2,7 +2,7 @@ import React from "react";
 import s from "./Messenger.module.css"
 import Chat from "./Chat/Chat";
 import Message from "./Message/Message";
-import { sendMessageCreator, updateNewMessageBodyCreator } from "@/redux/state.js";
+import { sendMessageCreator, updateNewMessageBodyCreator } from "@/redux/messenger-reducer.js";
 
 const Messenger = (props) => {
 

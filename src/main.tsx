@@ -4,7 +4,7 @@ import './index.css'
 import App from './App.jsx'
 // Импортируем state и функции. Нам нужно будет изменить state.ts,
 // чтобы он экспортировал нашу функцию рендеринга.
-import store from './redux/state'
+import store from './redux/store'
 import { BrowserRouter } from "react-router-dom"
 
 
