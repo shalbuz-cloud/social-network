@@ -1,7 +1,19 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const profileReducer = (state, action) => {
+const initialState = {
+    posts: [
+        {id: 1, message: "Hey, why nobody love me?"},
+        {id: 2, message: "It's our new program! Hey!"},
+        {id: 3, message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam, omnis."},
+        {id: 4, message: "Lorem ipsum dolor sit amet, consectetur."},
+    ],
+    newPostText: '',
+};
+
+const profileReducer = (state = initialState, action) => {
+
+    let stateCopy = {...state};
 
     switch (action.type) {
         case ADD_POST:
@@ -13,17 +25,18 @@ const profileReducer = (state, action) => {
                 id: 5,
                 message: postText,
             }
-            state.posts.push(newPost);
-            state.newPostText = '';
+
+            stateCopy.posts = [...state.posts, newPost];
+            stateCopy.newPostText = '';
             break;
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.text;
+            stateCopy.newPostText = action.text;
             break;
         default:
             break;
     }
 
-    return state;
+    return stateCopy;
 };
 
 export const addPostCreator = () => ({type: ADD_POST});

@@ -2,21 +2,19 @@ import React from "react";
 import s from "./Messenger.module.css"
 import Chat from "./Chat/Chat";
 import Message from "./Message/Message";
-import { sendMessageCreator, updateNewMessageBodyCreator } from "@/redux/messenger-reducer.js";
 
 const Messenger = (props) => {
 
-    let chatItems = props.state.dialogs.map(item => <Chat key={ item.id } id={ item.id } username={ item.name } />);
-    let messageItems = props.state.messages.map(item => <Message key={ item.id }>{ item.message }</Message>);
-    let newMessageBody = props.state.newMessageBody;
+    let chatItems = props.messenger.dialogs.map(item => <Chat key={ item.id } id={ item.id } username={ item.name } />);
+    let messageItems = props.messenger.messages.map(item => <Message key={ item.id }>{ item.message }</Message>);
 
     let onMessageClick = () => {
-        props.dispatch(sendMessageCreator())
+        props.sendMessage()
     }
 
     let onNewMessageChange = (event) => {
         let body = event.target.value;
-        props.dispatch(updateNewMessageBodyCreator(body))
+        props.updateNewMessageBody(body);
     }
 
     return (
@@ -29,7 +27,7 @@ const Messenger = (props) => {
                 <div>
                     <div>
                         <textarea
-                            value={ newMessageBody }
+                            value={ props.messenger.newMessageBody }
                             onChange={ onNewMessageChange }
                             placeholder='Enter your message'
                         ></textarea>

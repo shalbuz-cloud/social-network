@@ -2,48 +2,17 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.jsx'
-// Импортируем state и функции. Нам нужно будет изменить state.ts,
-// чтобы он экспортировал нашу функцию рендеринга.
-import store from './redux/store'
+import store from './redux/redux-store'
 import { BrowserRouter } from "react-router-dom"
+import { Provider } from "react-redux"
 
 
-// createRoot(document.getElementById('root')!).render(
-//     <StrictMode>
-//         <BrowserRouter>
-//             <App state={ state } addPost={ addPost } updateNewPostText={ updateNewPostText } />
-//         </BrowserRouter>
-//     </StrictMode>,
-// )
-
-
-// Находим корневой элемент
-const container = document.getElementById('root');
-
-// Убеждаемся, что элемент существует перед созданием корня
-if (!container) {
-    throw new Error('Root element #root not found in the DOM.');
-}
-
-const root = createRoot(container);
-
-// Определяем функцию рендеринга, которую мы будем вызывать для обновления всего дерева
-const rerenderEntireTree = () => {
-    // Вызываем метод render на созданном корне React
-    root.render(
-        <StrictMode>
-            <BrowserRouter>
-                {/* Передаем текущее актуальное состояние и функции в App */ }
-                <App state={ store.getState() } dispatch={ store.dispatch.bind(store) } />
-            </BrowserRouter>
-        </StrictMode>,
-    );
-};
-
-// Подписываемся на изменения в файле state.ts.
-// Теперь при любом изменении состояния (например, при добавлении поста),
-// будет вызвана функция rerenderEntireTree, которая запустит обновление.
-store.subscribe(rerenderEntireTree)
-
-// Первый вызов для первоначального рендера
-rerenderEntireTree()
+createRoot(document.getElementById('root')!).render(
+    <StrictMode>
+        <BrowserRouter>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </BrowserRouter>
+    </StrictMode>,
+)

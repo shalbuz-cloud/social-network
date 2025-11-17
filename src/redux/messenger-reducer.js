@@ -1,11 +1,41 @@
 const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-NEW-MESSAGE-BODY';
 const SEND_MESSAGE = 'SEND-MESSAGE';
 
-const messengerReducer = (state, action) => {
+const initialState = {
+    dialogs: [
+        {id: 1, name: "Eleonora"},
+        {id: 2, name: "Mark"},
+        {id: 3, name: "John"},
+        {id: 4, name: "Elliot"},
+        {id: 5, name: "Ann"},
+        {id: 6, name: "Steven"},
+    ],
+    messages: [
+        {
+            id: 1,
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nesciunt, sit."
+        },
+        {
+            id: 2,
+            message: "Lorem ipsum dolor."
+        },
+        {
+            id: 3,
+            message: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus, consequatur corporis " +
+                "debitis dolor dolorem dolorum fugit iure labore, nostrum obcaecati optio perferendis quam quasi, " +
+                "qui quis sint. Iste, quaerat."
+        },
+    ],
+    newMessageBody: '',
+}
+
+const messengerReducer = (state = initialState, action) => {
+
+    let stateCopy = {...state};
 
     switch (action.type) {
         case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.body;
+            stateCopy.newMessageBody = action.body;
             break;
         case SEND_MESSAGE:
             if (state.newMessageBody.trim().length === 0) {
@@ -13,16 +43,16 @@ const messengerReducer = (state, action) => {
             }
             let message = {
                 id: 4,
-                message: state.newMessageBody,
+                message: stateCopy.newMessageBody,
             };
-            state.messages.push(message);
-            state.newMessageBody = '';
+            stateCopy.messages = [...state.messages, message];
+            stateCopy.newMessageBody = '';
             break;
         default:
             break;
     }
 
-    return state;
+    return stateCopy;
 };
 
 export const sendMessageCreator = () => ({type: SEND_MESSAGE});

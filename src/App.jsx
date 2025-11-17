@@ -4,8 +4,8 @@ import SideNavigation from "@/components/SideNavigation/SideNavigation";
 import Profile from "@/components/Profile/Profile";
 import Footer from "@/components/Footer/Footer";
 import Feed from "@/components/Feed/Feed";
-import Messenger from "@/components/Messenger/Messenger";
 import { Route, Routes } from "react-router-dom";
+import MessengerContainer from "@/components/Messenger/MessengerContainer.jsx";
 
 function App(props) {
     return (
@@ -15,20 +15,10 @@ function App(props) {
             <section id="content">
                 <main>
                     <Routes>
-                        <Route
-                            path="/profile"
-                            element={
-                                <Profile profile={ props.state.profile } dispatch={ props.dispatch } /> }
-                        >
-
-                        </Route>
-                        <Route
-                            path="/messages/*"
-                            element={
-                                <Messenger state={ props.state.messenger } dispatch={ props.dispatch } />
-                            }
-                        ></Route>
-                        <Route path="/feed" element={ <Feed /> }></Route>
+                        <Route path="/profile" element={ <Profile /> } />
+                        <Route path="/messages/*" element={ <MessengerContainer /> } />
+                        <Route path="/feed" element={ <Feed /> } />
+                        <Route path="/users" element={<div>users</div>} />
                     </Routes>
                 </main>
             </section>

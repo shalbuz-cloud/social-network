@@ -1,6 +1,6 @@
 import s from "./Profile.module.css";
-import PostList from "./Post/PostList";
 import ProfileInfo from "./Info/ProfileInfo.tsx";
+import PostListContainer from "./Post/PostListContainer";
 
 const Profile = (props) => {
     return (
@@ -9,7 +9,7 @@ const Profile = (props) => {
             <div className={ s.profile }>
                 <ProfileInfo />
             </div>
-            <PostList profile={ props.profile } dispatch={ props.dispatch } />
+            <PostListContainer store = { props.store } />
         </>
     )
 }
