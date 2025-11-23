@@ -18,6 +18,9 @@ const SideNavigation = () => {
                 <NavItem to={ "/news" } activeClass={ s.active }>News</NavItem>
             </div>
             <div className={ s.item }>
+                <NavItem to={ "/users" } activeClass={ s.active }>Users</NavItem>
+            </div>
+            <div className={ s.item }>
                 <NavItem to={ "/music" } activeClass={ s.active }>Music</NavItem>
             </div>
             <div className={ s.item }>

@@ -6,8 +6,9 @@ import Footer from "@/components/Footer/Footer";
 import Feed from "@/components/Feed/Feed";
 import { Route, Routes } from "react-router-dom";
 import MessengerContainer from "@/components/Messenger/MessengerContainer.jsx";
+import UsersContainer from "@/components/Users/UsersContainer.jsx";
 
-function App(props) {
+function App() {
     return (
         <div className="wrapper">
             <Header />
@@ -18,7 +19,7 @@ function App(props) {
                         <Route path="/profile" element={ <Profile /> } />
                         <Route path="/messages/*" element={ <MessengerContainer /> } />
                         <Route path="/feed" element={ <Feed /> } />
-                        <Route path="/users" element={<div>users</div>} />
+                        <Route path="/users" element={ <UsersContainer /> } />
                     </Routes>
                 </main>
             </section>

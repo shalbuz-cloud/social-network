@@ -2,14 +2,14 @@ import s from "./Profile.module.css";
 import ProfileInfo from "./Info/ProfileInfo.tsx";
 import PostListContainer from "./Post/PostListContainer";
 
-const Profile = (props) => {
+const Profile = () => {
     return (
         <>
             <div className={ s.header }></div>
             <div className={ s.profile }>
                 <ProfileInfo />
             </div>
-            <PostListContainer store = { props.store } />
+            <PostListContainer />
         </>
     )
 }
