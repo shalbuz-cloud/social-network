@@ -15,5 +15,11 @@ export const usersAPI = {
     getUsers: async (pageNumber) => {
         const response = await api_v1.get(`users?page=${ pageNumber }&limit=2`);
         return response.data;
+    },
+    follow: async (userId) => {
+        return await api_v1.post(`follow/${ userId }`);
+    },
+    unfollow: async (userId) => {
+        return  await api_v1.delete(`follow/${ userId }`);
     }
 }
