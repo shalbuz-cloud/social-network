@@ -1,22 +1,23 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
-import Header from "@/components/Header/Header";
+import HeaderContainer from "@/components/Header/Header";
 import SideNavigation from "@/components/SideNavigation/SideNavigation";
-import Profile from "@/components/Profile/Profile";
+import ProfileContainer from "@/components/Profile/ProfileContainer";
 import Footer from "@/components/Footer/Footer";
 import Feed from "@/components/Feed/Feed";
-import { Route, Routes } from "react-router-dom";
 import MessengerContainer from "@/components/Messenger/MessengerContainer.jsx";
 import UsersContainer from "@/components/Users/UsersContainer.jsx";
 
 function App() {
     return (
         <div className="wrapper">
-            <Header />
+            <HeaderContainer />
             <SideNavigation />
             <section id="content">
                 <main>
                     <Routes>
-                        <Route path="/profile" element={ <Profile /> } />
+                        {/* :userId? - опциональный параметр */}
+                        <Route path="/profile/:userId?" element={ <ProfileContainer /> } />
                         <Route path="/messages/*" element={ <MessengerContainer /> } />
                         <Route path="/feed" element={ <Feed /> } />
                         <Route path="/users" element={ <UsersContainer /> } />
@@ -28,4 +29,4 @@ function App() {
     )
 }
 
-export default App
+export default App;
