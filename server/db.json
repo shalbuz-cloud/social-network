@@ -1,0 +1,82 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "fullName": "Dmitry",
+      "followed": true,
+      "status": "I am a boss",
+      "location": {
+        "city": "Minsk",
+        "country": "Belarus"
+      }
+    },
+    {
+      "id": 2,
+      "fullName": "Sasha",
+      "followed": true,
+      "status": "I am a boss",
+      "location": {
+        "city": "Moscow",
+        "country": "Russia"
+      }
+    },
+    {
+      "id": 3,
+      "fullName": "Johny",
+      "followed": true,
+      "status": "I am a boss",
+      "location": {
+        "city": "Miami",
+        "country": "United States"
+      }
+    },
+    {
+      "id": 4,
+      "fullName": "Maria",
+      "followed": false,
+      "status": "I am a boss",
+      "location": {
+        "city": "St. Petersburg",
+        "country": "Russia"
+      }
+    }
+  ],
+  "profile": {
+    "aboutMe": "я выполнил все ТЗ на 1001%",
+    "contacts": {
+      "facebook": "facebook.com",
+      "vk": "vk.ru",
+      "twitter": "https://twitter.com",
+      "instagram": "instagram.com",
+      "youtube": null,
+      "github": "github.com",
+      "mainLink": null
+    },
+    "lookingForAJob": true,
+    "lookingForAJobDescription": "Не ищу, а дурачусь",
+    "fullName": "Guest no name",
+    "userId": 1,
+    "photos": {
+      "small": null,
+      "large": null
+    }
+  },
+  "follow": [
+    {
+      "id": 1,
+      "status": true
+    },
+    {
+      "id": 2,
+      "status": true
+    },
+    {
+      "id": 3,
+      "status": true
+    },
+    {
+      "id": 4,
+      "status": false
+    }
+  ]
+}
