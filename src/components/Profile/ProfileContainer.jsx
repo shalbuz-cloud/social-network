@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { setUserProfile } from "@/redux/profile-reducer.js";
 import { withRouter } from "@/hoc/withRouter.jsx";
 import { usersAPI } from "@/api/api.js";
+import { withAuthRedirect } from "@/hoc/withAuthRedirect.jsx";
 
 class ProfileContainer extends React.Component {
 
@@ -22,11 +23,14 @@ class ProfileContainer extends React.Component {
     }
 }
 
+// High Order Component (HOC)
+const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 const mapStateToProps = (state) => ({
     profile: state.profile.profile
 });
 
 // Добавляем контекст из URL
-const WithUrlDataContainerComponent = withRouter(ProfileContainer);
+const WithUrlDataContainerComponent = withRouter(AuthRedirectComponent);
 
 export default connect(mapStateToProps, {setUserProfile})(WithUrlDataContainerComponent);

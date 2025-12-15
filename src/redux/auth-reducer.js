@@ -3,7 +3,8 @@ const SET_USER_DATA = "SET_USER_DATA";
 const initialState = {
     userId: null,
     email: null,
-    login: null
+    login: null,
+    isAuth: true
 };
 
 const AuthReducer = (state = initialState, action) => {
