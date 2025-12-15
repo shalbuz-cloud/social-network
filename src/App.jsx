@@ -7,6 +7,7 @@ import Footer from "@/components/Footer/Footer";
 import Feed from "@/components/Feed/Feed";
 import MessengerContainer from "@/components/Messenger/MessengerContainer.jsx";
 import UsersContainer from "@/components/Users/UsersContainer.jsx";
+import LoginPage from "@/components/Login/Login";
 
 function App() {
     return (
@@ -21,6 +22,7 @@ function App() {
                         <Route path="/messages/*" element={ <MessengerContainer /> } />
                         <Route path="/feed" element={ <Feed /> } />
                         <Route path="/users" element={ <UsersContainer /> } />
+                        <Route path="login" element={ <LoginPage /> } />
                     </Routes>
                 </main>
             </section>

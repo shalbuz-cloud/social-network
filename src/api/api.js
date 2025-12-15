@@ -21,5 +21,10 @@ export const usersAPI = {
     },
     unfollow: async (userId) => {
         return  await api_v1.delete(`follow/${ userId }`);
+    },
+    getProfile: async (userId = null) => {
+        let profile_url = "profile";
+        if (userId) { profile_url += "/" + userId }
+        return await api_v1.get(profile_url);
     }
 }
