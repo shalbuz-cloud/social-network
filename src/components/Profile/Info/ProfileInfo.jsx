@@ -10,7 +10,6 @@ const ProfileInfo = (props) => {
             <div className={ s.avatar }>
                 <img src="https://placehold.co/200x200/orange/white.png" alt="avatar" />
             </div>
-            {/*<ProfileStatus />*/}
             <div className={ s.info }>
                 <span className={ s.username }>{ props.profile.fullName }</span>
                 <ul>
