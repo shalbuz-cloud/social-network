@@ -1,9 +1,8 @@
 import React from "react";
 import Profile from "@/components/Profile/Profile.jsx";
 import { connect } from "react-redux";
-import { setUserProfile } from "@/redux/profile-reducer.js";
+import { getStatus, getUserProfile, setUserProfile, updateStatus } from "@/redux/profile-reducer.js";
 import { withRouter } from "@/hoc/withRouter.jsx";
-import { usersAPI } from "@/api/api.js";
 import { withAuthRedirect } from "@/hoc/withAuthRedirect.jsx";
 import { compose } from "@reduxjs/toolkit";
 
@@ -11,15 +10,13 @@ class ProfileContainer extends React.Component {
 
     componentDidMount() {
         let userId = this.props.router.params.userId;
-        usersAPI.getProfile(userId)
-            .then(response => {
-                this.props.setUserProfile(response.data);
-            });
+        this.props.getUserProfile(userId);
+        this.props.getStatus(1);  // user_id = 1 for test only
     }
 
     render() {
         return (
-            <Profile { ...this.props } profile={ this.props.profile } />
+            <Profile { ...this.props } profile={ this.props.profile } status={ this.props.status } updateStatus={ this.props.updateStatus } />
         )
     }
 }
@@ -28,7 +25,8 @@ class ProfileContainer extends React.Component {
 // const AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
 const mapStateToProps = (state) => ({
-    profile: state.profile.profile
+    profile: state.profile.profile,
+    status: state.profile.status,
 });
 
 // Добавляем контекст из URL
@@ -36,7 +34,7 @@ const mapStateToProps = (state) => ({
 
 // export default connect(mapStateToProps, {setUserProfile})(WithUrlDataContainerComponent);
 export default compose(
-    connect(mapStateToProps, {setUserProfile}),
+    connect(mapStateToProps, {getUserProfile, setUserProfile, getStatus, updateStatus}),
     withRouter,
     withAuthRedirect
 )(ProfileContainer);

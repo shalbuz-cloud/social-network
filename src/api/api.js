@@ -20,11 +20,32 @@ export const usersAPI = {
         return await api_v1.post(`follow/${ userId }`);
     },
     unfollow: async (userId) => {
-        return  await api_v1.delete(`follow/${ userId }`);
+        return await api_v1.delete(`follow/${ userId }`);
     },
+    getProfile: (userId = null) => {
+        console.warn('Deprecated method. Please use ProfileAPI object');
+        return profileAPI.getProfile(userId);
+    }
+}
+
+export const authAPI = {
+    me() {
+        return {"isAuthenticated": true};
+    }
+}
+
+export const profileAPI = {
     getProfile: async (userId = null) => {
         let profile_url = "profile";
-        if (userId) { profile_url += "/" + userId }
+        if (userId) {
+            profile_url += "/" + userId
+        }
         return await api_v1.get(profile_url);
+    },
+    getStatus: async (userId) => {
+        return await api_v1.get(`status/${ userId }`);
+    },
+    updateStatus: async (status) => {
+        return await api_v1.put(`status`, {status: status});
     }
 }

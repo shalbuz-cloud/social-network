@@ -65,3 +65,11 @@ class ProfileResponse(BaseModel):
 
 class FollowListResponse(BaseModel):
     follow: list[Follow]
+
+
+class StatusRequest(BaseModel):
+    status: str
+
+class StatusResponse(BaseModel):
+    status: str
+    success: bool

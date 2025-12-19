@@ -3,8 +3,8 @@
     {
       "id": 1,
       "fullName": "Dmitry",
-      "followed": true,
-      "status": "I am a boss",
+      "followed": false,
+      "status": "I am a Boss",
       "location": {
         "city": "Minsk",
         "country": "Belarus"
@@ -14,7 +14,7 @@
       "id": 2,
       "fullName": "Sasha",
       "followed": true,
-      "status": "I am a boss",
+      "status": "Status user 2",
       "location": {
         "city": "Moscow",
         "country": "Russia"
@@ -23,8 +23,8 @@
     {
       "id": 3,
       "fullName": "Johny",
-      "followed": true,
-      "status": "I am a boss",
+      "followed": false,
+      "status": "Status user 3",
       "location": {
         "city": "Miami",
         "country": "United States"
@@ -33,8 +33,8 @@
     {
       "id": 4,
       "fullName": "Maria",
-      "followed": false,
-      "status": "I am a boss",
+      "followed": true,
+      "status": "Status user 4",
       "location": {
         "city": "St. Petersburg",
         "country": "Russia"
@@ -68,15 +68,15 @@
     },
     {
       "id": 2,
-      "status": true
+      "status": false
     },
     {
       "id": 3,
-      "status": true
+      "status": false
     },
     {
       "id": 4,
-      "status": false
+      "status": true
     }
   ]
 }

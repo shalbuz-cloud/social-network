@@ -11,7 +11,7 @@ const Profile = (props) => {
                 <ProfileInfo { ...props.profile } />
             </div>
             <div className={ s['status-bar'] }>
-                <ProfileStatus />
+                <ProfileStatus status={ props.status } updateStatus={ props.updateStatus } />
             </div>
             <PostListContainer />
         </>

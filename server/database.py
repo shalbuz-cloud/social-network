@@ -51,7 +51,7 @@ class Database:
                     "id": 2,
                     "fullName": "Sasha",
                     "followed": True,
-                    "status": "I am a boss",
+                    "status": "Status user 2",
                     "location": {
                         "city": "Moscow",
                         "country": "Russia"
@@ -61,7 +61,7 @@ class Database:
                     "id": 3,
                     "fullName": "Johny",
                     "followed": False,
-                    "status": "I am a boss",
+                    "status": "Status user 3",
                     "location": {
                         "city": "Miami",
                         "country": "United States"
@@ -71,7 +71,7 @@ class Database:
                     "id": 4,
                     "fullName": "Maria",
                     "followed": True,
-                    "status": "I am a boss",
+                    "status": "Status user 4",
                     "location": {
                         "city": "St. Petersburg",
                         "country": "Russia"
@@ -182,6 +182,23 @@ class Database:
             if item.get('id') == user_id:
                 return item.get('status', False)
 
+        return False
+
+    def get_status(self, user_id: int) -> str | None:
+        """Get profile status"""
+        users = self.get_users()
+        for user in users:
+            if user.get('id') == user_id:
+                return user.get('status', '')
+        return None
+
+    def update_status(self, user_id: int, status: str) -> bool:
+        """Update or create user status"""
+        users = self.get_users()
+        for user in users:
+            if user.get('id') == user_id:
+                user['status'] = status
+                return self.save()
         return False
 
     def reset(self) -> None:

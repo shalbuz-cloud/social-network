@@ -1,6 +1,6 @@
 from math import ceil
 
-from fastapi import FastAPI, HTTPException, status, Query
+from fastapi import FastAPI, HTTPException, status as status_code, Query
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -10,7 +10,10 @@ from schemas import (
     FollowRequest,
     FollowResponse,
     ProfileResponse,
-    FollowListResponse, Follow,
+    FollowListResponse,
+    Follow,
+    StatusResponse,
+    StatusRequest,
 )
 
 app = FastAPI(
@@ -85,11 +88,11 @@ async def get_users(
         if total:
             response['total_count'] = total_count
 
-        return JSONResponse(response, status.HTTP_200_OK)
+        return JSONResponse(response, status_code.HTTP_200_OK)
 
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status_code.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f'Error getting users: {str(e)}'
         )
 
@@ -123,7 +126,7 @@ async def get_user_follow_status(user_id: int) -> Follow:
     return Follow(id=user_id, status=_status)
 
 
-@app.post('/api/v1/follow', response_model=FollowResponse, status_code=status.HTTP_200_OK)
+@app.post('/api/v1/follow', response_model=FollowResponse, status_code=status_code.HTTP_200_OK)
 async def create_or_update_follow(follow_request: FollowRequest) -> FollowResponse:
     """
     Create or update a follow
@@ -143,12 +146,12 @@ async def create_or_update_follow(follow_request: FollowRequest) -> FollowRespon
         )
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status_code.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f'Error updating follow status: {str(e)}'
         )
 
 
-@app.post('/api/v1/follow/{user_id}', response_model=FollowResponse, status_code=status.HTTP_201_CREATED)
+@app.post('/api/v1/follow/{user_id}', response_model=FollowResponse, status_code=status_code.HTTP_201_CREATED)
 async def create_follow(user_id: int) -> FollowResponse:
     """Create follow"""
     try:
@@ -162,12 +165,12 @@ async def create_follow(user_id: int) -> FollowResponse:
         )
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status_code.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f'Error creating follow status: {str(e)}'
         )
 
 
-@app.delete('/api/v1/follow/{user_id}', response_model=FollowResponse, status_code=status.HTTP_200_OK)
+@app.delete('/api/v1/follow/{user_id}', response_model=FollowResponse, status_code=status_code.HTTP_200_OK)
 async def delete_follow(user_id: int) -> FollowResponse:
     """
     Delete a follow status for user
@@ -184,7 +187,7 @@ async def delete_follow(user_id: int) -> FollowResponse:
         )
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status_code.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f'Error deleting follow status: {str(e)}'
         )
 
@@ -200,9 +203,20 @@ async def reset_database() -> dict[str, str]:
         return {'message': 'Database reset successfully'}
     except Exception as e:
         raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
+            status_code=status_code.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f'Error resetting database: {str(e)}'
         )
+
+@app.get('/api/v1/status/{user_id}', response_model=StatusResponse, status_code=status_code.HTTP_200_OK)
+async def get_status(user_id: int) -> StatusResponse:
+    """Get current status"""
+    profile_status = db.get_status(user_id)
+    return StatusResponse(status=profile_status, success=profile_status is not None)
+
+@app.put('/api/v1/status')
+async def update_status(data: StatusRequest) -> StatusResponse:
+    """Update current status"""
+    return StatusResponse(status=data.status, success=db.update_status(1, data.status))
 
 
 if __name__ == "__main__":
